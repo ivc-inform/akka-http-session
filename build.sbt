@@ -2,14 +2,16 @@ import sbt.Credentials
 import sbt.Keys.credentials
 
 import scalariform.formatter.preferences._
+import com.typesafe.sbt.SbtScalariform.ScalariformKeys
 
-lazy val commonSettings = scalariformSettings ++ Seq(
+lazy val commonSettings = Seq(
     organization := "com.softwaremill.akka-http-session",
     version := "0.5.2.1",
     scalaVersion := "2.12.3",
     scalacOptions ++= Seq("-unchecked", "-deprecation"),
     ScalariformKeys.preferences := ScalariformKeys.preferences.value
-      .setPreference(DoubleIndentClassDeclaration, true)
+      .setPreference(AlignSingleLineCaseStatements, true)
+      .setPreference(DoubleIndentConstructorArguments, true)
       .setPreference(PreserveSpaceBeforeArguments, true)
       .setPreference(CompactControlReadability, true)
       .setPreference(SpacesAroundMultiImports, false),
