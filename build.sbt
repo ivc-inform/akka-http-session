@@ -13,7 +13,7 @@ lazy val commonSettings = scalariformSettings ++ Seq(
       .setPreference(PreserveSpaceBeforeArguments, true)
       .setPreference(CompactControlReadability, true)
       .setPreference(SpacesAroundMultiImports, false),
-    // Sonatype OSS deployment
+
     publishTo := {
         val corporateRepo = "http://toucan.simplesys.lan/"
         if (isSnapshot.value)
