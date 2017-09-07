@@ -34,7 +34,7 @@ val scalaTest = "org.scalatest" %% "scalatest" % "3.0.3" % Test
 lazy val rootProject = (project in file("."))
   .settings(commonSettings: _*)
   .settings(
-      publishArtifact := false,
+      //publishArtifact := false,
       name := "akka-http-session")
   .aggregate(core, jwt, example, javaTests)
 
