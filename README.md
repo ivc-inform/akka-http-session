@@ -14,6 +14,8 @@ is a need to maintain user sessions, make sure session data is secure and cannot
 `akka-http-session` provides directives for client-side session management in web and mobile applications, using cookies
 or custom headers + local storage, with optional [Json Web Tokens](http://jwt.io/) format support. 
 
+A [comprehensive FAQ](https://github.com/softwaremill/akka-http-session-faq) is available, along with code examples (in Java, but easy to translate to Scala) which answers many common questions on how sessions work, how to secure them and implement using akka-http.
+
 ## What is a session?
 
 Session data typically contains at least the `id` or `username` of the logged in user. This id must be secured so that a 
@@ -131,14 +133,12 @@ By default, sessions are encoded into a string using a custom format, where expi
 
 You can also encode sessions in the [Json Web Tokens](http://jwt.io) format, by adding the additional `jwt` dependency, which makes use of [`json4s`](http://json4s.org).
 
-[Java](https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/java/com/softwaremill/example/session/manager/JWTSessionManagerJava.java) and [scala](https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/scala/com/softwaremill/example/session/manager/JWTSessionManagerScala.scala) JWT session managers. 
-
 When using JWT, you need to provide a serializer which serializes session data to a `JValue` instead of a `String`. 
 A number of serializers for the basic types are present in `JValueSessionSerializer`, as well as a generic serializer for case classes (used above).
 
 You may also find it helpful to include the json4s-ext library which provides serializers for common Java types such as  `java.util.UUID`, `org.joda.time._` and Java enumerations.
 
-Grab some [java](https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/java/com/softwaremill/example/serializers/JWTSerializersJava.java) and [scala](https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/scala/com/softwaremill/example/serializers/JWTSerializersScala.scala) examples.
+Grab some [java](https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/java/com/softwaremill/example/jwt/JavaJwtExample.java) and [scala](https://github.com/softwaremill/akka-http-session/blob/master/example/src/main/scala/com/softwaremill/example/serializers/JWTSerializersScala.scala) examples.
 
 There are many tools available to read JWT session data using various platforms, e.g. 
 [for Angular](https://github.com/auth0/angular-jwt).
@@ -231,6 +231,6 @@ stored in Rails
 For `akka-http` version `10.0.3`:
 
 ````scala
-libraryDependencies += "com.softwaremill.akka-http-session" %% "core" % "0.5.1"
-libraryDependencies += "com.softwaremill.akka-http-session" %% "jwt"  % "0.5.1" // optional
+libraryDependencies += "com.softwaremill.akka-http-session" %% "core" % "0.5.3"
+libraryDependencies += "com.softwaremill.akka-http-session" %% "jwt"  % "0.5.3" // optional
 ````
