@@ -10,10 +10,10 @@ class SessionManagerJwtEncoderTest extends FlatSpec with Matchers {
   val configEncryptedMaxAge = configMaxAge.copy(sessionEncryptData = true)
 
   case class TestData[T](
-    name: String,
-    data: T,
-    config: SessionConfig,
-    sessionSerializer: SessionSerializer[T, JValue])
+      name: String,
+      data: T,
+      config: SessionConfig,
+      sessionSerializer: SessionSerializer[T, JValue])
 
   import JValueSessionSerializer._
   val tests = List(

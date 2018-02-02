@@ -25,7 +25,7 @@ object SetSessionScala extends App with StrictLogging {
     def log(msg: String) = logger.info(msg)
   }
 
-  def mySetSession(v: MyScalaSession) = setSession(refreshable, usingCookies, v)
+  def mySetSession(v: MyScalaSession) = setSession(refreshable, usingCookiesOrHeaders, v)
 
   val myRequiredSession = requiredSession(refreshable, usingCookies)
   val myInvalidateSession = invalidateSession(refreshable, usingCookies)

@@ -7,7 +7,7 @@ import org.json4s.jackson.JsonMethods._
 import scala.util.Try
 
 class JwtSessionEncoder[T](implicit serializer: SessionSerializer[T, JValue], formats: Formats = DefaultFormats)
-    extends SessionEncoder[T] {
+  extends SessionEncoder[T] {
 
   override def encode(t: T, nowMillis: Long, config: SessionConfig) = {
     val h = encode(createHeader)

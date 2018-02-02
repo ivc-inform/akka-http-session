@@ -62,8 +62,8 @@ sealed trait CsrfCheckMode[T] {
 }
 class CheckHeader[T] private[session] (implicit val manager: SessionManager[T]) extends CsrfCheckMode[T]
 class CheckHeaderAndForm[T] private[session] (implicit
-  val manager: SessionManager[T],
-  val materializer: Materializer) extends CsrfCheckMode[T]
+    val manager: SessionManager[T],
+    val materializer: Materializer) extends CsrfCheckMode[T]
 
 object CsrfOptions {
   def checkHeader[T](implicit manager: SessionManager[T]): CheckHeader[T] = new CheckHeader[T]()

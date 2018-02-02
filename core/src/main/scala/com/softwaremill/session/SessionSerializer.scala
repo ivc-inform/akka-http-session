@@ -10,8 +10,8 @@ trait SessionSerializer[T, R] {
 }
 
 class SingleValueSessionSerializer[T, V](toValue: T => V, fromValue: V => Try[T])(
-  implicit
-  valueSerializer: SessionSerializer[V, String]) extends SessionSerializer[T, String] {
+    implicit
+    valueSerializer: SessionSerializer[V, String]) extends SessionSerializer[T, String] {
 
   override def serialize(t: T) = valueSerializer.serialize(toValue(t))
 
@@ -19,7 +19,7 @@ class SingleValueSessionSerializer[T, V](toValue: T => V, fromValue: V => Try[T]
 }
 
 class MultiValueSessionSerializer[T](toMap: T => Map[String, String], fromMap: Map[String, String] => Try[T])
-    extends SessionSerializer[T, String] {
+  extends SessionSerializer[T, String] {
 
   import SessionSerializer._
 

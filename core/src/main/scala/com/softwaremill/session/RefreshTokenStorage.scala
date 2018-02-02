@@ -12,21 +12,21 @@ trait RefreshTokenStorage[T] {
 }
 
 case class RefreshTokenData[T](
-  forSession: T,
-  selector: String,
-  tokenHash: String,
-  /**
-   * Timestamp
-   */
-  expires: Long)
+    forSession: T,
+    selector: String,
+    tokenHash: String,
+    /**
+     * Timestamp
+     */
+    expires: Long)
 
 case class RefreshTokenLookupResult[T](
-  tokenHash: String,
-  /**
-   * Timestamp
-   */
-  expires: Long,
-  createSession: () => T)
+    tokenHash: String,
+    /**
+     * Timestamp
+     */
+    expires: Long,
+    createSession: () => T)
 
 /**
  * Useful for testing.
